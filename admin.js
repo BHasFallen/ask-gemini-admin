@@ -421,7 +421,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const gistTokenInput = document.getElementById('gist-token');
     const gistIdInput = document.getElementById('gist-id');
 
-    gistTokenInput.value = localStorage.getItem('ag_gist_token') || '';
+    gistTokenInput.value = localStorage.getItem('ag_gist_token') || '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';
     gistIdInput.value = localStorage.getItem('ag_gist_id') || 'fcb206ffdca44bd3e5d2099de4c81636';
 
     gistTokenInput.addEventListener('change', () => {
