@@ -391,8 +391,11 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="banner-id">Feature ID (Bump ID to re-trigger for all users)</label>
-                        <input type="text" id="banner-id" class="form-control" value="multi_quote_v1">
+                        <div class="card-header-flex">
+                            <label for="banner-id">Feature ID (Must be unique per edit to pop up)</label>
+                            <button type="button" class="btn-preset" id="btn-gen-banner-id">✨ Auto-Generate New ID</button>
+                        </div>
+                        <input type="text" id="banner-id" class="form-control" value="banner_v1">
                     </div>
 
                     <div class="form-group">
