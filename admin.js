@@ -172,10 +172,12 @@ document.addEventListener('DOMContentLoaded', () => {
         input.addEventListener('change', updateStateFromUI);
     });
 
-    // Slider display label sync
-    const spThresholdSlider = document.getElementById('input-sp-threshold');
-    spThresholdSlider.addEventListener('input', (e) => {
-        document.getElementById('val-sp-threshold').textContent = parseInt(e.target.value).toLocaleString() + ' chars';
+    // Banner ID auto-generator
+    document.getElementById('btn-gen-banner-id').addEventListener('click', () => {
+        const newId = 'banner_' + Date.now().toString(36);
+        document.getElementById('banner-id').value = newId;
+        updateStateFromUI();
+        showToast(`Generated new Feature ID: ${newId}`, "success");
     });
 
     // ── Per-User Overrides Visual Form Manager ──────────────────────────────────
@@ -441,6 +443,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const syncTab = document.querySelector('[data-target="tab-publish"]');
             if (syncTab) syncTab.click();
             return;
+        }
+
+        // Auto-bump banner ID if it's still default or unmodified
+        const currentBannerId = document.getElementById('banner-id').value.trim();
+        if (!currentBannerId || currentBannerId === 'banner_v1' || currentBannerId === 'multi_quote_v1') {
+            const freshId = 'banner_' + Date.now().toString(36);
+            document.getElementById('banner-id').value = freshId;
         }
 
         updateStateFromUI();
